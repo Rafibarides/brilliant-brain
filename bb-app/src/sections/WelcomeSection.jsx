@@ -11,6 +11,23 @@ function WelcomeSection() {
   ]
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
+
+  // Preload images to check if they exist
+  useEffect(() => {
+    const testImage = new Image()
+    testImage.onload = () => {
+      setImageLoaded(true)
+      setImageError(false)
+    }
+    testImage.onerror = () => {
+      setImageError(true)
+      setImageLoaded(false)
+      console.error('Failed to load image:', welcomeImages[currentImageIndex])
+    }
+    testImage.src = welcomeImages[currentImageIndex]
+  }, [currentImageIndex, welcomeImages])
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
@@ -41,13 +58,20 @@ function WelcomeSection() {
     padding: '0 2rem',
     width: '100%',
     height: '100%',
-    backgroundImage: `url(${welcomeImages[currentImageIndex]})`,
+    backgroundImage: imageError 
+      ? `linear-gradient(135deg, ${palette.lightBlue} 0%, ${palette.primary} 100%)`
+      : `url(${welcomeImages[currentImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     transition: 'opacity 1s ease-in-out',
-    zIndex: 1
+    zIndex: 1,
+    opacity: imageLoaded || imageError ? 1 : 0.5
   }
+
+  // Debug: Log current image path and loading status
+  console.log('Current welcome image:', welcomeImages[currentImageIndex])
+  console.log('Image loaded:', imageLoaded, 'Image error:', imageError)
 
   const overlayStyle = {
     position: 'absolute',

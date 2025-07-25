@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import ScrollToTop from './components/ScrollToTop'
+import ImageTest from './components/ImageTest'
 import Home from './pages/Home'
 import Classes from './pages/Classes'
 import SignUp from './pages/SignUp'
@@ -21,6 +22,7 @@ function App() {
       <ScrollToTop />
       <div style={{ fontFamily: 'Arial, sans-serif', position: 'relative' }}>
         <NavBar isModalOpen={isModalOpen} />
+        <ImageTest />
         <main style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
