@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Classes from './pages/Classes'
 import SignUp from './pages/SignUp'
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div style={{ fontFamily: 'Arial, sans-serif', position: 'relative' }}>
         <NavBar isModalOpen={isModalOpen} />
         <main style={{ position: 'relative', zIndex: 1 }}>
