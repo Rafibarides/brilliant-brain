@@ -92,7 +92,7 @@ function Terms() {
           For questions about these Terms of Service, contact us at:
         </p>
         <p style={textStyle}>
-          Email: brilliantbrainclasses@gmail.com<br/>
+          Email: info@brilliantbrainclasses.org<br/>
           Phone: (214) 923-7821<br/>
           Location: Brooklyn, NY
         </p>

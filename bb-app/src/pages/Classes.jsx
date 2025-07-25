@@ -284,7 +284,7 @@ function Classes({ setIsModalOpen }) {
 
             <h2 style={modalTitleStyle}>{selectedClass.title}</h2>
             <div style={modalPriceStyle}>
-              <span>${selectedClass.pricePerHour} per hour</span>
+              <span>${selectedClass.pricePerHour}</span>
               <span style={{ fontSize: '1rem', color: '#666666', fontWeight: 'normal' }}>
                 • 1 hour session
               </span>

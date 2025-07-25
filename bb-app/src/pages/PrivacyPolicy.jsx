@@ -90,7 +90,7 @@ function PrivacyPolicy() {
           If you have any questions about this Privacy Policy, please contact us at:
         </p>
         <p style={textStyle}>
-          Email: brilliantbrainclasses@gmail.com<br/>
+          Email: info@brilliantbrainclasses.org<br/>
           Phone: (214) 923-7821<br/>
           Location: Brooklyn, NY
         </p>

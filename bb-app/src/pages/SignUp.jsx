@@ -209,7 +209,7 @@ function SignUp() {
           </div>
           <div style={contactItemStyle}>
             <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary, flexShrink: 0 }} />
-            <span>brilliantbrainclasses@gmail.com</span>
+            <span>info@brilliantbrainclasses.org</span>
           </div>
           <div style={contactItemStyle}>
             <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary, flexShrink: 0 }} />
@@ -369,7 +369,7 @@ function SignUp() {
         </div>
         <div style={contactItemStyle}>
           <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary, flexShrink: 0 }} />
-          <span>brilliantbrainclasses@gmail.com</span>
+          <span>info@brilliantbrainclasses.org</span>
         </div>
         <div style={contactItemStyle}>
           <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary, flexShrink: 0 }} />

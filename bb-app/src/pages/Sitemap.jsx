@@ -139,7 +139,7 @@ function Sitemap() {
           <strong>Phone:</strong> (214) 923-7821
         </p>
         <p style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>
-          <strong>Email:</strong> brilliantbrainclasses@gmail.com
+          <strong>Email:</strong> info@brilliantbrainclasses.org
         </p>
         <p style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>
           <strong>Location:</strong> Brooklyn, NY

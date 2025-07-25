@@ -196,7 +196,7 @@ function Footer() {
           </div>
           <div style={contactItemStyle}>
             <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary }} />
-            <span>brilliantbrainclasses@gmail.com</span>
+            <span>info@brilliantbrainclasses.org</span>
           </div>
           <div style={contactItemStyle}>
             <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary }} />

@@ -86,7 +86,7 @@ function Support() {
         </div>
         <div style={contactItemStyle}>
           <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary }} />
-          <span><strong>Email:</strong> brilliantbrainclasses@gmail.com</span>
+          <span><strong>Email:</strong> info@brilliantbrainclasses.org</span>
         </div>
         <div style={contactItemStyle}>
           <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary }} />
