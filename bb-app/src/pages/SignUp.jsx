@@ -139,8 +139,14 @@ function SignUp() {
   const contactItemStyle = {
     fontSize: '1.1rem',
     color: '#333333',
-    margin: '0.5rem 0',
-    fontWeight: '500'
+    margin: '0.75rem 0',
+    fontWeight: '500',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.5rem',
+    flexWrap: 'wrap',
+    wordBreak: 'break-word'
   }
 
   const successMessageStyle = {
@@ -197,18 +203,18 @@ function SignUp() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <h3 style={contactTitleStyle}>Contact Information</h3>
-          <p style={contactItemStyle}>
-            <FontAwesomeIcon icon={faPhone} style={{ marginRight: '0.5rem', color: palette.primary }} />
-            (214) 923-7821
-          </p>
-          <p style={contactItemStyle}>
-            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0.5rem', color: palette.primary }} />
-            brilliantbrainclasses@gmail.com
-          </p>
-          <p style={contactItemStyle}>
-            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: '0.5rem', color: palette.primary }} />
-            Brooklyn, NY
-          </p>
+          <div style={contactItemStyle}>
+            <FontAwesomeIcon icon={faPhone} style={{ color: palette.primary, flexShrink: 0 }} />
+            <span>(214) 923-7821</span>
+          </div>
+          <div style={contactItemStyle}>
+            <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary, flexShrink: 0 }} />
+            <span>brilliantbrainclasses@gmail.com</span>
+          </div>
+          <div style={contactItemStyle}>
+            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary, flexShrink: 0 }} />
+            <span>Brooklyn, NY</span>
+          </div>
         </motion.div>
       </div>
     )
@@ -357,18 +363,18 @@ function SignUp() {
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         <h3 style={contactTitleStyle}>Get in Touch</h3>
-        <p style={contactItemStyle}>
-          <FontAwesomeIcon icon={faPhone} style={{ marginRight: '0.5rem', color: palette.primary }} />
-          (214) 923-7821
-        </p>
-        <p style={contactItemStyle}>
-          <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0.5rem', color: palette.primary }} />
-          brilliantbrainclasses@gmail.com
-        </p>
-        <p style={contactItemStyle}>
-          <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: '0.5rem', color: palette.primary }} />
-          Brooklyn, NY
-        </p>
+        <div style={contactItemStyle}>
+          <FontAwesomeIcon icon={faPhone} style={{ color: palette.primary, flexShrink: 0 }} />
+          <span>(214) 923-7821</span>
+        </div>
+        <div style={contactItemStyle}>
+          <FontAwesomeIcon icon={faEnvelope} style={{ color: palette.primary, flexShrink: 0 }} />
+          <span>brilliantbrainclasses@gmail.com</span>
+        </div>
+        <div style={contactItemStyle}>
+          <FontAwesomeIcon icon={faMapMarkerAlt} style={{ color: palette.primary, flexShrink: 0 }} />
+          <span>Brooklyn, NY</span>
+        </div>
       </motion.div>
 
       <style jsx>{`
@@ -379,6 +385,56 @@ function SignUp() {
           
           h1 {
             font-size: 2.5rem !important;
+          }
+          
+          /* Mobile contact info improvements */
+          div[style*="contactInfoStyle"] {
+            padding: 1.5rem 1rem !important;
+          }
+          
+          div[style*="contactItemStyle"] {
+            font-size: 1rem !important;
+            flex-direction: column !important;
+            gap: 0.25rem !important;
+            text-align: center !important;
+          }
+          
+          div[style*="contactItemStyle"] span {
+            font-size: 0.95rem !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          div[style*="gridTemplateColumns"] {
+            grid-template-columns: 1fr !important;
+          }
+          
+          h1 {
+            font-size: 2rem !important;
+          }
+          
+          /* Small mobile specific */
+          div[style*="contactInfoStyle"] {
+            padding: 1rem 0.75rem !important;
+            margin: 1rem 0 !important;
+          }
+          
+          div[style*="contactTitleStyle"] {
+            font-size: 1.25rem !important;
+          }
+          
+          div[style*="contactItemStyle"] {
+            margin: 0.5rem 0 !important;
+          }
+          
+          /* Form improvements for small screens */
+          div[style*="formStyle"] {
+            padding: 1.5rem !important;
+          }
+          
+          div[style*="thankYouStyle"] {
+            padding: 1.5rem 1rem !important;
+            font-size: 1rem !important;
           }
         }
       `}</style>

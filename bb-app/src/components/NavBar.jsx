@@ -241,15 +241,23 @@ function NavBar({ isModalOpen = false }) {
     <nav style={navStyle}>
       {/* Left Section - Logo */}
       <div style={leftSectionStyle}>
-        <Link to="/">
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '0.75rem' }}>
           <img src="/bb-logo.png" alt="Brilliant Brain Logo" style={logoStyle} />
+          <span style={{ 
+            color: palette.text, 
+            fontSize: '1.5rem', 
+            fontWeight: 'bold',
+            display: isMobile ? 'none' : 'block'
+          }}>
+            Brilliant Brain
+          </span>
         </Link>
       </div>
 
       {/* Center Section - Desktop Menu */}
       <div style={centerSectionStyle} ref={menuContainerRef}>
-        {/* Animated Pill */}
-        <div style={pillStyle}></div>
+        {/* Animated Pill - Only show on desktop */}
+        {!isMobile && <div style={pillStyle}></div>}
         
         <ul style={desktopMenuStyle}>
           <li>
