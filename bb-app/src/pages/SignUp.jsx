@@ -1,0 +1,389 @@
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import palette from '../utils/colors'
+import classesData from '../../JSON/Classes.json'
+
+function SignUp() {
+  const [formData, setFormData] = useState({
+    name: '',
+    age: '',
+    classesInterested: [],
+    location: '',
+    preferredDateTime: '',
+    phone: '',
+    email: ''
+  })
+
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const pageStyle = {
+    padding: '2rem',
+    paddingTop: '120px',
+    textAlign: 'left',
+    backgroundColor: '#FFFFFF',
+    minHeight: '100vh',
+    color: '#333333',
+    maxWidth: '800px',
+    margin: '0 auto'
+  }
+
+  const titleStyle = {
+    fontSize: '3rem',
+    color: palette.primary,
+    margin: '2rem 0',
+    fontWeight: 'bold',
+    textAlign: 'center'
+  }
+
+  const thankYouStyle = {
+    fontSize: '1.1rem',
+    marginBottom: '3rem',
+    lineHeight: '1.7',
+    textAlign: 'center',
+    backgroundColor: '#f8fafc',
+    color: '#334155',
+    padding: '2.5rem 2rem',
+    borderRadius: '12px',
+    border: `1px solid ${palette.lightBlue}`,
+    boxShadow: '0 2px 8px rgba(42, 150, 217, 0.08)'
+  }
+
+  const formStyle = {
+    backgroundColor: '#FFFFFF',
+    padding: '2rem',
+    borderRadius: '15px',
+    border: `2px solid ${palette.lightBlue}`,
+    marginBottom: '2rem',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
+  }
+
+  const fieldGroupStyle = {
+    marginBottom: '1.5rem'
+  }
+
+  const labelStyle = {
+    display: 'block',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    color: palette.darkBlue,
+    marginBottom: '0.5rem'
+  }
+
+  const inputStyle = {
+    width: '100%',
+    padding: '0.75rem',
+    fontSize: '1rem',
+    border: `2px solid ${palette.lightBlue}`,
+    borderRadius: '8px',
+    outline: 'none',
+    transition: 'border-color 0.3s ease'
+  }
+
+  const selectStyle = {
+    ...inputStyle,
+    backgroundColor: '#FFFFFF'
+  }
+
+  const checkboxGroupStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '0.5rem',
+    marginTop: '0.5rem'
+  }
+
+  const checkboxItemStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    padding: '0.5rem',
+    backgroundColor: '#f8f9fa',
+    borderRadius: '8px',
+    border: `1px solid ${palette.lightBlue}`
+  }
+
+  const checkboxStyle = {
+    accentColor: palette.primary
+  }
+
+  const submitButtonStyle = {
+    backgroundColor: palette.primary,
+    color: '#FFFFFF',
+    padding: '1rem 2rem',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+    width: '100%',
+    marginTop: '1rem'
+  }
+
+  const contactInfoStyle = {
+    backgroundColor: '#f8f9fa',
+    padding: '2rem',
+    borderRadius: '15px',
+    border: `2px solid ${palette.lightBlue}`,
+    textAlign: 'center'
+  }
+
+  const contactTitleStyle = {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: palette.darkBlue,
+    marginBottom: '1rem'
+  }
+
+  const contactItemStyle = {
+    fontSize: '1.1rem',
+    color: '#333333',
+    margin: '0.5rem 0',
+    fontWeight: '500'
+  }
+
+  const successMessageStyle = {
+    backgroundColor: palette.darkGreen,
+    color: '#FFFFFF',
+    padding: '2rem',
+    borderRadius: '15px',
+    textAlign: 'center',
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    marginBottom: '2rem'
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleClassChange = (classTitle, isChecked) => {
+    setFormData(prev => ({
+      ...prev,
+      classesInterested: isChecked 
+        ? [...prev.classesInterested, classTitle]
+        : prev.classesInterested.filter(c => c !== classTitle)
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsSubmitted(true)
+    // Here you would typically send the form data to your backend
+    console.log('Form submitted:', formData)
+  }
+
+  if (isSubmitted) {
+    return (
+      <div style={pageStyle}>
+        <motion.div
+          style={successMessageStyle}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Thank you for your submission! We'll get back to you within 24 hours.
+        </motion.div>
+        
+        <motion.div
+          style={contactInfoStyle}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h3 style={contactTitleStyle}>Contact Information</h3>
+          <p style={contactItemStyle}>
+            <FontAwesomeIcon icon={faPhone} style={{ marginRight: '0.5rem', color: palette.primary }} />
+            (214) 923-7821
+          </p>
+          <p style={contactItemStyle}>
+            <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0.5rem', color: palette.primary }} />
+            brilliantbrainclasses@gmail.com
+          </p>
+          <p style={contactItemStyle}>
+            <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: '0.5rem', color: palette.primary }} />
+            Brooklyn, NY
+          </p>
+        </motion.div>
+      </div>
+    )
+  }
+
+  return (
+    <div style={pageStyle}>
+      <motion.h1 
+        style={titleStyle}
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        Contact & Signup
+      </motion.h1>
+
+      <motion.div
+        style={thankYouStyle}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        Thank you for your interest in Brilliant Brain Classes! We're excited to help you or your child explore new skills and creativity. Please fill out the form below and we'll get back to you within 24 hours to schedule your session.
+      </motion.div>
+
+      <motion.form
+        style={formStyle}
+        onSubmit={handleSubmit}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Name *</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            style={inputStyle}
+            required
+            placeholder="Enter your full name"
+          />
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Age of Participant *</label>
+          <input
+            type="text"
+            name="age"
+            value={formData.age}
+            onChange={handleInputChange}
+            style={inputStyle}
+            required
+            placeholder="e.g., 8 years old, Adult"
+          />
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Class(es) Interested In *</label>
+          <div style={checkboxGroupStyle}>
+            {classesData.classes.map((classItem, index) => (
+              <div key={index} style={checkboxItemStyle}>
+                <input
+                  type="checkbox"
+                  id={`class-${index}`}
+                  style={checkboxStyle}
+                  onChange={(e) => handleClassChange(classItem.title, e.target.checked)}
+                />
+                <label htmlFor={`class-${index}`} style={{ fontSize: '0.95rem', cursor: 'pointer' }}>
+                  {classItem.title}
+                </label>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Location Preference *</label>
+          <select
+            name="location"
+            value={formData.location}
+            onChange={handleInputChange}
+            style={selectStyle}
+            required
+          >
+            <option value="">Select location preference</option>
+            <option value="in-studio">In-Studio (Brooklyn, NY)</option>
+            <option value="on-site">On-Site (Your Location)</option>
+          </select>
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Preferred Day/Time *</label>
+          <input
+            type="text"
+            name="preferredDateTime"
+            value={formData.preferredDateTime}
+            onChange={handleInputChange}
+            style={inputStyle}
+            required
+            placeholder="e.g., Weekends, Tuesday evenings, flexible"
+          />
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Phone Number *</label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            style={inputStyle}
+            required
+            placeholder="(123) 456-7890"
+          />
+        </div>
+
+        <div style={fieldGroupStyle}>
+          <label style={labelStyle}>Email Address *</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            style={inputStyle}
+            required
+            placeholder="your.email@example.com"
+          />
+        </div>
+
+        <button
+          type="submit"
+          style={submitButtonStyle}
+          onMouseEnter={(e) => e.target.style.backgroundColor = palette.darkBlue}
+          onMouseLeave={(e) => e.target.style.backgroundColor = palette.primary}
+        >
+          Submit Request
+        </button>
+      </motion.form>
+
+      <motion.div
+        style={contactInfoStyle}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        <h3 style={contactTitleStyle}>Get in Touch</h3>
+        <p style={contactItemStyle}>
+          <FontAwesomeIcon icon={faPhone} style={{ marginRight: '0.5rem', color: palette.primary }} />
+          (214) 923-7821
+        </p>
+        <p style={contactItemStyle}>
+          <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '0.5rem', color: palette.primary }} />
+          brilliantbrainclasses@gmail.com
+        </p>
+        <p style={contactItemStyle}>
+          <FontAwesomeIcon icon={faMapMarkerAlt} style={{ marginRight: '0.5rem', color: palette.primary }} />
+          Brooklyn, NY
+        </p>
+      </motion.div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          div[style*="gridTemplateColumns"] {
+            grid-template-columns: 1fr !important;
+          }
+          
+          h1 {
+            font-size: 2.5rem !important;
+          }
+        }
+      `}</style>
+    </div>
+  )
+}
+
+export default SignUp
