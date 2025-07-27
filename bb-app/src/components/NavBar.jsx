@@ -36,6 +36,9 @@ function NavBar({ isModalOpen = false }) {
     const targetPath = hoveredItem || location.pathname
     let targetRef = null
 
+    // Check if we're on a class detail page (any path that's not a known route)
+    const isClassDetailPage = !['/', '/classes', '/signup', '/about', '/careers', '/privacy-policy', '/terms', '/sitemap', '/support', '/cookie-policy'].includes(location.pathname)
+
     switch (targetPath) {
       case '/':
         targetRef = homeRef.current
@@ -47,7 +50,12 @@ function NavBar({ isModalOpen = false }) {
         targetRef = signupRef.current
         break
       default:
-        targetRef = null
+        // If we're on a class detail page and not hovering, highlight "Classes"
+        if (isClassDetailPage && !hoveredItem) {
+          targetRef = classesRef.current
+        } else {
+          targetRef = null
+        }
     }
 
     if (targetRef && menuContainerRef.current) {
@@ -89,18 +97,26 @@ function NavBar({ isModalOpen = false }) {
     zIndex: 1000,
     transition: 'all 0.3s ease',
     opacity: isModalOpen ? 0 : 1,
-    transform: isModalOpen ? 'translateY(-100%)' : 'translateY(0)'
+    transform: isModalOpen ? 'translateY(-100%)' : 'translateY(0)',
+    height: isMobile ? 'auto' : '80px',
+    minHeight: isMobile ? '60px' : '70px',
+    maxHeight: isMobile ? '80px' : '90px'
   }
 
   const logoStyle = {
-    height: '40px',
-    width: 'auto'
+    height: isMobile ? '32px' : '40px',
+    width: 'auto',
+    maxHeight: isMobile ? '32px' : '40px',
+    maxWidth: isMobile ? '120px' : '150px'
   }
 
   const leftSectionStyle = {
     flex: '1',
     display: 'flex',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    minWidth: 0,
+    overflow: 'hidden'
   }
 
   const centerSectionStyle = {
@@ -162,17 +178,25 @@ function NavBar({ isModalOpen = false }) {
     zIndex: 2
   })
 
-  const getMobileLinkStyle = (path) => ({
-    textDecoration: 'none',
-    color: palette.text,
-    fontWeight: '500',
-    padding: '0.5rem 1rem',
-    borderRadius: '50px',
-    transition: 'all 0.2s ease',
-    display: 'block',
-    opacity: 1,
-    backgroundColor: location.pathname === path ? `rgba(255, 255, 255, 0.5)` : 'transparent'
-  })
+  const getMobileLinkStyle = (path) => {
+    // Check if we're on a class detail page
+    const isClassDetailPage = !['/', '/classes', '/signup', '/about', '/careers', '/privacy-policy', '/terms', '/sitemap', '/support', '/cookie-policy'].includes(location.pathname)
+    
+    // If we're on a class detail page, treat it as if we're on /classes for active state
+    const isActive = location.pathname === path || (isClassDetailPage && path === '/classes')
+    
+    return {
+      textDecoration: 'none',
+      color: palette.text,
+      fontWeight: '500',
+      padding: '0.5rem 1rem',
+      borderRadius: '50px',
+      transition: 'all 0.2s ease',
+      display: 'block',
+      opacity: 1,
+      backgroundColor: isActive ? `rgba(255, 255, 255, 0.5)` : 'transparent'
+    }
+  }
 
   const getMobileLinkHoverStyle = () => ({
     backgroundColor: `rgba(255, 255, 255, 0.25)`,
@@ -224,30 +248,27 @@ function NavBar({ isModalOpen = false }) {
     transform: isMenuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none'
   }
 
-  const mobileButtonStyle = {
-    backgroundColor: palette.darkBlue,
-    color: palette.text,
-    textDecoration: 'none',
-    padding: '0.75rem 1.5rem',
-    margin: '0.5rem 1rem',
-    borderRadius: '50px',
-    textAlign: 'center',
-    fontWeight: '600',
-    display: 'block',
-    transition: 'all 0.3s ease'
-  }
+
 
   return (
     <nav style={navStyle}>
       {/* Left Section - Logo */}
       <div style={leftSectionStyle}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '0.75rem' }}>
+        <Link to="/" style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          textDecoration: 'none', 
+          gap: '0.75rem',
+          maxWidth: isMobile ? '150px' : '250px',
+          overflow: 'hidden'
+        }}>
           <img src="/bb-logo.png" alt="Brilliant Brain Logo" style={logoStyle} />
           <span style={{ 
             color: palette.text, 
-            fontSize: '1.5rem', 
+            fontSize: isMobile ? '1.2rem' : '1.5rem', 
             fontWeight: 'bold',
-            display: isMobile ? 'none' : 'block'
+            display: isMobile ? 'none' : 'block',
+            whiteSpace: 'nowrap'
           }}>
             Brilliant Brain
           </span>
@@ -356,15 +377,6 @@ function NavBar({ isModalOpen = false }) {
             onMouseLeave={(e) => Object.assign(e.target.style, getMobileLinkStyle('/signup'))}
           >
             Sign Up
-          </Link>
-        </li>
-        <li style={mobileMenuItemStyle}>
-          <Link 
-            to="/signup" 
-            style={mobileButtonStyle}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Learn More
           </Link>
         </li>
       </ul>
