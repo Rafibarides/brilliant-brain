@@ -1,10 +1,11 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Classes from './pages/Classes'
+import ClassDetail from './pages/ClassDetail'
 import SignUp from './pages/SignUp'
+import Careers from './pages/Careers'
 import Footer from './pages/Footer'
 import About from './pages/About'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -14,17 +15,17 @@ import Support from './pages/Support'
 import CookiePolicy from './pages/CookiePolicy'
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <Router>
       <ScrollToTop />
       <div style={{ fontFamily: 'Arial, sans-serif', position: 'relative' }}>
-        <NavBar isModalOpen={isModalOpen} />
+        <NavBar />
         <main style={{ position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/classes" element={<Classes setIsModalOpen={setIsModalOpen} />} />
+            <Route path="/classes" element={<Classes />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -32,6 +33,7 @@ function App() {
             <Route path="/sitemap" element={<Sitemap />} />
             <Route path="/support" element={<Support />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/:endpoint" element={<ClassDetail />} />
           </Routes>
         </main>
         <Footer />

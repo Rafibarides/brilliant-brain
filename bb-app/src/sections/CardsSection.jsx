@@ -65,17 +65,7 @@ function CardsSection() {
     marginBottom: '1.5rem'
   }
 
-  const buttonStyle = {
-    backgroundColor: palette.lightBlue,
-    color: 'white',
-    border: 'none',
-    padding: '0.75rem 1.5rem',
-    borderRadius: '50px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    fontSize: '1rem'
-  }
+
 
   const cards = [
     {
@@ -173,16 +163,6 @@ function CardsSection() {
                 />
                 <h3 style={cardTitleStyle}>{card.title}</h3>
                 <p style={cardDescriptionStyle}>{card.description}</p>
-                <motion.button
-                  style={{...buttonStyle, backgroundColor: card.color}}
-                  whileHover={{ 
-                    backgroundColor: palette.darkBlue,
-                    scale: 1.05 
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
               </motion.div>
             </motion.div>
           ))}

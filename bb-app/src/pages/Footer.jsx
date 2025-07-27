@@ -141,7 +141,7 @@ function Footer() {
             Sign Up
           </Link>
           <Link 
-            to="/signup" 
+            to="/careers" 
             style={linkStyle}
             onMouseEnter={(e) => handleLinkHover(e, true)}
             onMouseLeave={(e) => handleLinkHover(e, false)}
