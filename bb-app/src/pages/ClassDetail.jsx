@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import palette from '../utils/colors'
 import classesData from '../../JSON/Classes.json'
 
@@ -104,13 +105,46 @@ function ClassDetail() {
   }
 
   return (
-    <motion.div 
-      style={pageStyle}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div style={containerStyle}>
+    <>
+      <Helmet>
+        <title>{classItem.title} - Brilliant Brain Classes | Brooklyn, NY</title>
+        <meta name="description" content={`${classItem.full_text} $${classItem.pricePerHour} per 1-hour session. All supplies included. Book your ${classItem.title.toLowerCase()} class in Brooklyn, NY.`} />
+        <meta name="keywords" content={`${classItem.title.toLowerCase()}, classes, education, Brooklyn, hands-on learning, creative education, brilliant brain classes`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://brilliantbrainclasses.org/${classItem.endpoint}`} />
+        <meta property="og:title" content={`${classItem.title} - Brilliant Brain Classes`} />
+        <meta property="og:description" content={`${classItem.full_text} $${classItem.pricePerHour} per hour. All supplies included.`} />
+        <meta property="og:image" content={classItem.photo} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${classItem.title} class at Brilliant Brain Classes`} />
+        <meta property="og:site_name" content="Brilliant Brain Classes" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`https://brilliantbrainclasses.org/${classItem.endpoint}`} />
+        <meta property="twitter:title" content={`${classItem.title} - Brilliant Brain Classes`} />
+        <meta property="twitter:description" content={`${classItem.full_text} $${classItem.pricePerHour} per hour. All supplies included.`} />
+        <meta property="twitter:image" content={classItem.photo} />
+        <meta property="twitter:image:alt" content={`${classItem.title} class at Brilliant Brain Classes`} />
+
+        {/* WhatsApp / Telegram */}
+        <meta property="og:image:type" content="image/jpeg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://brilliantbrainclasses.org/${classItem.endpoint}`} />
+      </Helmet>
+      
+      <motion.div 
+        style={pageStyle}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div style={containerStyle}>
         <motion.button
           style={backButtonStyle}
           onClick={handleBackClick}
@@ -241,7 +275,8 @@ function ClassDetail() {
           }
         }
       `}</style>
-    </motion.div>
+      </motion.div>
+    </>
   )
 }
 
