@@ -17,6 +17,8 @@ function SignUp() {
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const pageStyle = {
     padding: '2rem',
@@ -160,6 +162,16 @@ function SignUp() {
     marginBottom: '2rem'
   }
 
+  const errorMessageStyle = {
+    backgroundColor: '#dc3545',
+    color: '#FFFFFF',
+    padding: '1rem',
+    borderRadius: '8px',
+    textAlign: 'center',
+    fontSize: '1rem',
+    marginBottom: '1rem'
+  }
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -177,11 +189,48 @@ function SignUp() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    // Google Apps Script Web App URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxGtN-_wIMkggCJW9vw58J6tBPbJqqAEMLZDg_-IryXIucAsKDO6_c4BrDclnX0Vt4_Iw/exec'
+    
+    try {
+      const submissionData = {
+        ...formData,
+        classesInterested: formData.classesInterested.join(', '), // Convert array to string
+        timestamp: new Date().toISOString(),
+        submissionDate: new Date().toLocaleDateString(),
+        submissionTime: new Date().toLocaleTimeString()
+      }
+
+      // Send data to Google Apps Script using URL parameters (more reliable)
+      const params = new URLSearchParams()
+      Object.keys(submissionData).forEach(key => {
+        params.append(key, submissionData[key])
+      })
+      
+      const urlWithParams = `${SCRIPT_URL}?${params.toString()}`
+      console.log('Sending request to:', urlWithParams)
+      
+      await fetch(urlWithParams, {
+        method: 'GET',
+        mode: 'no-cors'
+      })
+
+      // Since we're using no-cors mode, we can't read the response
+      // We'll assume success if no error is thrown
+      console.log('Form submitted successfully:', submissionData)
+      setIsSubmitted(true)
+      
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitError('There was an error submitting your form. Please try again or contact us directly.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -247,6 +296,12 @@ function SignUp() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
+        {submitError && (
+          <div style={errorMessageStyle}>
+            {submitError}
+          </div>
+        )}
+
         <div style={fieldGroupStyle}>
           <label style={labelStyle}>Name *</label>
           <input
@@ -257,6 +312,7 @@ function SignUp() {
             style={inputStyle}
             required
             placeholder="Enter your full name"
+            disabled={isSubmitting}
           />
         </div>
 
@@ -270,6 +326,7 @@ function SignUp() {
             style={inputStyle}
             required
             placeholder="e.g., 8 years old, Adult"
+            disabled={isSubmitting}
           />
         </div>
 
@@ -283,6 +340,7 @@ function SignUp() {
                   id={`class-${index}`}
                   style={checkboxStyle}
                   onChange={(e) => handleClassChange(classItem.title, e.target.checked)}
+                  disabled={isSubmitting}
                 />
                 <label htmlFor={`class-${index}`} style={{ fontSize: '0.95rem', cursor: 'pointer' }}>
                   {classItem.title}
@@ -300,6 +358,7 @@ function SignUp() {
             onChange={handleInputChange}
             style={selectStyle}
             required
+            disabled={isSubmitting}
           >
             <option value="">Select location preference</option>
             <option value="in-studio">In-Studio (Brooklyn, NY)</option>
@@ -317,6 +376,7 @@ function SignUp() {
             style={inputStyle}
             required
             placeholder="e.g., Weekends, Tuesday evenings, flexible"
+            disabled={isSubmitting}
           />
         </div>
 
@@ -330,6 +390,7 @@ function SignUp() {
             style={inputStyle}
             required
             placeholder="(123) 456-7890"
+            disabled={isSubmitting}
           />
         </div>
 
@@ -343,16 +404,30 @@ function SignUp() {
             style={inputStyle}
             required
             placeholder="your.email@example.com"
+            disabled={isSubmitting}
           />
         </div>
 
         <button
           type="submit"
-          style={submitButtonStyle}
-          onMouseEnter={(e) => e.target.style.backgroundColor = palette.darkBlue}
-          onMouseLeave={(e) => e.target.style.backgroundColor = palette.primary}
+          style={{
+            ...submitButtonStyle,
+            backgroundColor: isSubmitting ? '#ccc' : submitButtonStyle.backgroundColor,
+            cursor: isSubmitting ? 'not-allowed' : 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            if (!isSubmitting) {
+              e.target.style.backgroundColor = palette.darkBlue
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isSubmitting) {
+              e.target.style.backgroundColor = palette.primary
+            }
+          }}
+          disabled={isSubmitting}
         >
-          Submit Request
+          {isSubmitting ? 'Submitting...' : 'Submit Request'}
         </button>
       </motion.form>
 
