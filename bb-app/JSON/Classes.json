@@ -1,69 +1,100 @@
 {
-    "classes": [
-      {
-        "title": "Gardening and Planting",
-        "overview": "Fun hands-on class about plant care and ecosystems for all ages.",
-        "full_text": "Engage in gardening, plant care, and learning about the natural environment through fun activities like planting your own flowers and veggies to keep, caring for plants, and learning about their ecosystems with an experienced teacher. Includes all needed supplies. Ages: 4+ to adults.",
-        "photo": "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg",
+  "classes": [
+    {
+      "title": "Gardening and Planting",
+      "overview": "Fun hands-on class about plant care and ecosystems for all ages.",
+      "full_text": "Engage in gardening, plant care, and learning about the natural environment through fun activities like planting your own flowers and veggies to keep, caring for plants, and learning about their ecosystems with an experienced teacher. Includes all needed supplies. Ages: 4+ to adults.",
+      "photo": "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg",
+      "pricePerHour": "150",
+      "endpoint": "gardening-and-planting"
+    },
+    {
+      "title": "Painting",
+      "overview": "Learn landscape, portrait, and object painting in group or private settings.",
+      "full_text": "Learn and practice painting landscapes, portraits, and objects guided by a seasoned instructor in a group or in your home setting. Includes all paints, brushes, easels, and canvases needed. Ages: 4+ to adults \u2013 individual classes, group classes, couples painting sessions.",
+      "photo": "https://media.istockphoto.com/id/824740546/photo/portrait-of-confidence-girl-painting-on-canvas.jpg?s=612x612&w=0&k=20&c=PJV514d-V4W4PR0B2gQ29aheIDVe3rXSllKWxWX-LnY=",
+      "pricePerHour": "150",
+      "endpoint": "painting"
+    },
+    {
+      "title": "Photography Fun",
+      "overview": "Explore photography basics like ISO, framing, and focus through creative exercises.",
+      "full_text": "Learn the basics of photography, including ISO, F-stop, framing, focus, and how to capture the perfect shot. Sessions include hands-on practice with guided tips and creative challenges. Includes cameras if needed and digital files to print your best photos. Ages: 12+.",
+      "photo": "https://images.squarespace-cdn.com/content/v1/63fa85e6b613c058ef6dad60/35493043-cffa-4e2b-9bc5-57f93b2a5a50/Kids-Photography-Classes.jpg",
+      "pricePerHour": "150",
+      "endpoint": "photography-fun"
+    },
+    {
+      "title": "Coding and Robotics",
+      "overview": "Build robots and learn to code with C++ and Arduino-based projects.",
+      "full_text": "Introduce children to the world of coding and robotics through beginner-friendly programming languages like C++ and interactive projects using tools like Arduino and robotics kits. Includes sensors, actuators, motors, and software. Basic coding programs control the robot's movements, decision-making processes, and interactions with its environment. Includes Arduino and accessories based on the age-appropriate project. Computer not provided. Ages: 12+ to adult.",
+      "photo": "https://school-education.ec.europa.eu/sites/default/files/generic-article/2022-10/AdobeStock_488569153_600x400.jpg",
+      "pricePerHour": "150",
+      "endpoint": "coding-and-robotics"
+    },
+    {
+      "title": "Baking Basics",
+      "overview": "Hands-on kitchen fun: learn to bake cookies, cakes, and more with pro tips.",
+      "full_text": "Master baking basics by creating homemade cookies, cakes, and pastries following step-by-step recipes under the guidance of an experienced, passionate baker. Includes all tools, ingredients, and recipes. In your kitchen. Kosher & allergy-sensitive options available. Ages: 4+ to adult. Classes are all age and skill appropriate.",
+      "photo": "https://bobs-redmill.transforms.svdcdn.com/production/blog/uploads/2018/08/shutterstock_563342329.jpg?w=1280&h=633&auto=compress%2Cformat&fit=max&dm=1719317650&s=2e64d4b44986177eabad5b94a36a2400",
+      "pricePerHour": "150",
+      "endpoint": "baking-basics"
+    },
+    {
+      "title": "Home Organization & Life Skills",
+      "overview": "Declutter and organize your living space with practical skills and tools.",
+      "full_text": "Learn practical organizing skills for bedrooms, closets, kitchens, and more with the guidance of a professional home organizer. Sessions cover sorting, labeling, folding, and creating simple systems to keep things tidy. Includes organizing kits, labels, and bins. Ages: 13+",
+      "photo": "https://www.theskimm.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F6g4gfm8wk7b6%2F18uJUAzeUS38h51HnQbRSF%2Fdbb4e0b5c17df4a2591cce19e2537d18%2FHeader__16_.png&w=3840&q=75",
+      "pricePerHour": "150",
+      "endpoint": "home-organization-and-life-skills"
+    },
+    {
+      "title": "Chess Club",
+      "overview": "Sharpen strategy and focus through engaging chess lessons and gameplay.",
+      "full_text": "Develop strategic thinking, patience, and focus while learning opening moves, midgame tactics, and endgame strategies in the classic game of chess. Includes all boards and materials. Sessions feature guided lessons and supervised gameplay. Great for beginners and experienced players alike. Ages: 6+",
+      "photo": "https://chessnyc.com/wp-content/uploads/2021/11/pexels-photo-8466163.jpeg",
+      "pricePerHour": "150",
+      "endpoint": "chess-club"
+    },
+    {
+      "title": "Artificial Intelligence (AI) Basics",
+      "overview": "Explore how to use AI tools for writing, images, and communication.",
+      "full_text": "Explore how to use AI for writing, image creation, and communication by learning how to craft effective prompts and understand how these tools work. Taught by an experienced AI instructor. Includes guided exercises and real-world examples. Devices and premium software are not included. Ages: 16+",
+      "photo": "https://codeweek.eu/images/coding-home/banner_bg.png",
+      "pricePerHour": "150",
+      "endpoint": "artificial-intelligence-ai-basics"
+    },
+    {
+      "title": "Logic and Creative Thinking",
+      "overview": "Boost reasoning, focus, and creative problem-solving with fun games and challenges.",
+      "full_text": "Strengthen focus, reasoning, and creative problem-solving through fun games and challenges. Each session builds a different skill like sequencing, flexible thinking, or pattern recognition, using brain teasers, card games, and strategy puzzles. Includes all needed boards, cards, and materials. Ages: 6+ to adults.",
+      "photo": "https://production-cms.ravensburger.bloomreach.cloud/site/binaries/content/gallery/thinkfun-us-shop/products/seo-content/2022_11_thinkfun_products_logicgames3_teasersingle_926x627.jpg/2022_11_thinkfun_products_logicgames3_teasersingle_926x627.jpg/cmsevolution%3Atrosuwxo",
+      "pricePerHour": "150",
+      "endpoint": "logic-and-creative-thinking"
+    },
+    {
+      "title": "Learn a Language",
+      "overview": "Spanish, Yiddish, Russian, or Hebrew. Build vocabulary and conversational skills with native speakers through games and practice.",
+      "full_text": "Build vocabulary and conversational skills through fun, interactive lessons led by native speakers. Each session focuses on real-life topics like greetings, food, directions, and expressing feelings using flashcards, games, discussions, and videos. Includes all learning materials and language games. Ages: 8+ to adults.",
+      "photo": "https://media.istockphoto.com/id/838083008/photo/boy-by-the-board.jpg?s=612x612&w=0&k=20&c=q6BmTpmej49ae8-g7Q9O7A_svx9v1ekqudxy_ZFiQR4=",
+      "pricePerHour": "150",
+      "endpoint": "learn-a-language"
+    },
+    {
+      "title": "Communication & Debate",
+      "overview": "Learn skillsto speak clearly, express ideas, and build confidence through fun debate and roleplay.",
+      "full_text": "Learn how to speak clearly, make strong impressions, and join conversations with confidence. Each session builds one key skill through activities like mini debates, roleplay, quick-response games, and guided conversation drills. Based on practical tools from best-selling communication books. Includes all practice sheets, prompts, and materials. Ages: 16+ to adult \u2013 small group or one-on-one.",
+      "photo": "https://cdn.churchleaders.com/wp-content/uploads/2021/08/debate-topics-for-youth-at-church.jpg",
         "pricePerHour": "150",
-        "endpoint": "gardening-and-planting"
-      },
-      {
-        "title": "Painting",
-        "overview": "Learn landscape, portrait, and object painting in group or private settings.",
-        "full_text": "Learn and practice painting landscapes, portraits, and objects guided by a seasoned instructor in a group or in your home setting. Includes all paints, brushes, easels, and canvases needed. Ages: 4+ to adults – individual classes, group classes, couples painting sessions.",
-        "photo": "https://media.istockphoto.com/id/824740546/photo/portrait-of-confidence-girl-painting-on-canvas.jpg?s=612x612&w=0&k=20&c=PJV514d-V4W4PR0B2gQ29aheIDVe3rXSllKWxWX-LnY=",
-        "pricePerHour": "150",
-        "endpoint": "painting"
-      },
-      {
-        "title": "Photography Fun",
-        "overview": "Explore photography basics like ISO, framing, and focus through creative exercises.",
-        "full_text": "Learn the basics of photography, including ISO, F-stop, framing, focus, and taking that perfect shot. Includes cameras if needed and files to print at the end of the session. Ages: 12+.",
-        "photo": "https://images.squarespace-cdn.com/content/v1/63fa85e6b613c058ef6dad60/35493043-cffa-4e2b-9bc5-57f93b2a5a50/Kids-Photography-Classes.jpg",
-        "pricePerHour": "150",
-        "endpoint": "photography-fun"
-      },
-      {
-        "title": "Coding and Robotics",
-        "overview": "Build robots and learn to code with C++ and Arduino-based projects.",
-        "full_text": "Introduce children to the world of coding and robotics through beginner-friendly programming languages like C++ and interactive projects using tools like Arduino and robotics kits. Includes sensors, actuators, motors, and software. Basic coding programs control the robot's movements, decision-making processes, and interactions with its environment. Includes Arduino and accessories based on the age-appropriate project. Computer not provided. Ages: 12+ to adult.",
-        "photo": "https://school-education.ec.europa.eu/sites/default/files/generic-article/2022-10/AdobeStock_488569153_600x400.jpg",
-        "pricePerHour": "150",
-        "endpoint": "coding-and-robotics"
-      },
-      {
-        "title": "Baking Basics",
-        "overview": "Hands-on kitchen fun: learn to bake cookies, cakes, and more with pro tips.",
-        "full_text": "Master baking basics by creating homemade cookies, cakes, and pastries following step-by-step recipes under the guidance of an experienced, passionate baker. Includes all tools, ingredients, and recipes. In your kitchen. Kosher & allergy-sensitive options available. Ages: 4+ to adult. Classes are all age and skill appropriate.",
-        "photo": "https://bobs-redmill.transforms.svdcdn.com/production/blog/uploads/2018/08/shutterstock_563342329.jpg?w=1280&h=633&auto=compress%2Cformat&fit=max&dm=1719317650&s=2e64d4b44986177eabad5b94a36a2400",
-        "pricePerHour": "150",
-        "endpoint": "baking-basics"
-      },
-      {
-        "title": "Home Organization & Life Skills",
-        "overview": "Declutter and organize your living space with practical skills and tools.",
-        "full_text": "Learn how to declutter and organize home spaces. Includes labels, sorting bins, and demo kits.",
-        "photo": "https://www.theskimm.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F6g4gfm8wk7b6%2F18uJUAzeUS38h51HnQbRSF%2Fdbb4e0b5c17df4a2591cce19e2537d18%2FHeader__16_.png&w=3840&q=75",
-        "pricePerHour": "150",
-        "endpoint": "home-organization-and-life-skills"
-      },
-      {
-        "title": "Chess Club",
-        "overview": "Sharpen strategy and focus through engaging chess lessons and gameplay.",
-        "full_text": "Develop strategic thinking, patience, and focus while learning opening moves, midgame tactics, and endgame strategies. Boards and materials provided. Sessions include guided lessons and gameplay. Great for beginners and experienced players alike.",
-        "photo": "https://chessnyc.com/wp-content/uploads/2021/11/pexels-photo-8466163.jpeg",
-        "pricePerHour": "150",
-        "endpoint": "chess-club"
-      },
-      {
-        "title": "Artificial Intelligence (AI) Basics",
-        "overview": "Intro to using AI tools for image generation, video, and creative projects.",
-        "full_text": "Understand and use AI tools for images, video, and more. Includes devices, prompts, and software access.",
-        "photo": "https://www.parents.com/thmb/595334Wl0HQnRAxfMv6Fy7bf9ME=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/shutterstock_172261862-2--d36510500ca044e1bd9bb51f798b3141.jpg",
-        "pricePerHour": "150",
-        "endpoint": "artificial-intelligence-ai-basics"
-      }
-    ]
-  }
-  
+      "endpoint": "communication-and-debate"
+    },
+    {
+      "title": "Bowling",
+      "overview": "Learn proper form and improve your bowling game through fun, guided coaching.",
+      "full_text": "Learn the basics of bowling while building real skills in each session. Focus on grip, aim, timing, and picking up spares through fun challenges and guided coaching. Improve your game while having a great time at the lanes. Includes lane time, shoe rental, score sheets, and coaching. Ages: 6+ to adult.",
+      "photo": "https://s3-media0.fl.yelpcdn.com/bphoto/WccdFiYajKUYo80Pc7ekGA/1000s.jpg",
+      "pricePerHour": "150",
+      "endpoint": "bowling"
+    }
+  ]
+}

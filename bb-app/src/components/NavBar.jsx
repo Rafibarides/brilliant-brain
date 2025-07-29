@@ -175,7 +175,8 @@ function NavBar({ isModalOpen = false }) {
     opacity: 1,
     backgroundColor: 'transparent',
     position: 'relative',
-    zIndex: 2
+    zIndex: 2,
+    whiteSpace: 'nowrap'
   })
 
   const getMobileLinkStyle = (path) => {
@@ -194,7 +195,8 @@ function NavBar({ isModalOpen = false }) {
       transition: 'all 0.2s ease',
       display: 'block',
       opacity: 1,
-      backgroundColor: isActive ? `rgba(255, 255, 255, 0.5)` : 'transparent'
+      backgroundColor: isActive ? `rgba(255, 255, 255, 0.5)` : 'transparent',
+      whiteSpace: 'nowrap'
     }
   }
 
@@ -259,13 +261,13 @@ function NavBar({ isModalOpen = false }) {
           alignItems: 'center', 
           textDecoration: 'none', 
           gap: '0.75rem',
-          maxWidth: isMobile ? '150px' : '250px',
+          maxWidth: isMobile ? '180px' : '300px',
           overflow: 'hidden'
         }}>
           <img src="/bb-logo.png" alt="Brilliant Brain Logo" style={logoStyle} />
           <span style={{ 
             color: palette.text, 
-            fontSize: isMobile ? '1.2rem' : '1.5rem', 
+            fontSize: isMobile ? '1rem' : '1.25rem', 
             fontWeight: 'bold',
             display: isMobile ? 'none' : 'block',
             whiteSpace: 'nowrap'
